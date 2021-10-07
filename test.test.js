@@ -57,4 +57,28 @@ describe('tests for the ATM class', () => {
             expect(myATM.getBalance()).toBe(3000 - (2 * myATM.bills));
         });
     });
+    describe('tests for the receivePayment() method', () => {
+        let myATM;
+        beforeEach(() => {
+            myATM = new ATM(3000);
+        });
+
+        test('balance should be 3000', () => {
+            expect(myATM.getBalance()).toBe(3000);
+        });
+
+        test('receivePayment() should work', () => {
+            expect(myATM.getBalance()).toBe(3000);
+            myATM.receivePayment();
+            expect(myATM.getBalance()).toBeGreaterThan(3000);
+            expect(myATM.getBalance()).toBe(3500);
+        });
+
+        test('receivePayment() should work', () => {
+            expect(myATM.getBalance()).toBe(3000);
+            myATM.receivePayment();
+            myATM.receivePayment();
+            expect(myATM.getBalance()).toBe(4000);
+        });
+    });
 });
