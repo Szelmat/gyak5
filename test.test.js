@@ -11,5 +11,21 @@ describe('tests for the ATM class', () => {
             expect(myATM).toBeInstanceOf(ATM);
             expect(myATM.getBalance()).toBe(3000);
         });
+
+        test('withdraw should work', () => {
+            expect(myATM.getBalance()).toBe(3000);
+            myATM.withdraw(1000);
+            expect(myATM.getBalance()).toBe(2000);
+        });
+    });
+    describe('tests for the putIn method', () => {
+        let myATM;
+        beforeEach(() => {
+            myATM = new ATM(3000);
+        });
+
+        test('balance should be 3000', () => {
+            expect(myATM.getBalance()).toBe(3000);
+        });
     });
 });
